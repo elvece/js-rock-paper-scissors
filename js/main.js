@@ -14,28 +14,40 @@ Player.prototype.picks = function(pick){
   return this.pick;
 };
 
+
 Game.prototype.winner = function(){
-  if (player1.pick === 'rock' && player2.pick ==='scissors'){
-    return player1;
-  }
-  else if (player1.pick === 'scissors' && player2.pick === 'paper'){
-    return player1;
-  }
-  else if (player1.pick === 'paper' && player2.pick === 'rock'){
-    return player1;
-  }
-  else if (player1.pick === 'rock' && player2.pick === 'paper'){
-    return player2;
-  }
-  else if (player1.pick === 'scissors' && player2.pick === 'rock'){
-    return player2;
-  }
-  else if (player1.pick === 'paper' && player2.pick === 'scissors'){
-    return player2;
-  }
-  else if (player1.pick === player2.pick){
+  if (this.player1.pick === this.player2.pick){
     return null;
   }
+
+  if (this.player1.pick === 'rock') {
+    if (this.player2.pick ==='scissors') {
+      return this.player1;
+    } else {
+      return this.player2;
+    }
+  }
+
+  if (this.player1.pick === 'paper') {
+    if (this.player2.pick ==='rock') {
+      return this.player1;
+    } else {
+      return this.player2;
+    }
+  }
+
+  if (this.player1.pick === 'scissors') {
+    if (this.player2.pick ==='paper') {
+      return this.player1;
+    } else {
+      return this.player2;
+    }
+  }
+};
+
+module.exports = {
+  Player: Player,
+  Game: Game
 };
 
 // - Rock > scissors
