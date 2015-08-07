@@ -1,7 +1,6 @@
 
 function Player(name){
   this.name = name;
-  this.pick = "";
 }
 
 function Game(player1, player2){
@@ -16,12 +15,26 @@ Player.prototype.picks = function(pick){
 };
 
 Game.prototype.winner = function(){
-  if (player1.pick === 'rock'){
-    switch (player2.pick ==='scissors'){
-      case win: return player1;
-    }
-    default: return "no pick entered";
-
+  if (player1.pick === 'rock' && player2.pick ==='scissors'){
+    return player1;
+  }
+  else if (player1.pick === 'scissors' && player2.pick === 'paper'){
+    return player1;
+  }
+  else if (player1.pick === 'paper' && player2.pick === 'rock'){
+    return player1;
+  }
+  else if (player1.pick === 'rock' && player2.pick === 'paper'){
+    return player2;
+  }
+  else if (player1.pick === 'scissors' && player2.pick === 'rock'){
+    return player2;
+  }
+  else if (player1.pick === 'paper' && player2.pick === 'scissors'){
+    return player2;
+  }
+  else if (player1.pick === player2.pick){
+    return null;
   }
 };
 
@@ -38,5 +51,8 @@ Game.prototype.winner = function(){
 //if player1 is rock and player2 is paper
 //if player1 is scissors and player2 is rock
 //if player1 is paper and player2 is scissors
+
+//draw:
+//if player1.pick === player2.pick
 
 
